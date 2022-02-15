@@ -18,5 +18,23 @@ To query the available data in cloud storage:
 
 ### Preprocessing
 Some initial transformations are necessary to enable the data to be accepted for autoML in GCP.
+Specifically a CSV file and the images it points to must be within the same GCP cloud storage bucket.
+The csv file must be UTF-8 encoded, .csv extension, has one row for each bounding box or one row for each image with no bounding box.
+The file must contain one image per line. Images with multiple bounding boxes will be repeated with a unique bounding box coordinates on each row. 
+An example is:
+'''
+TRAIN, gs://folder/image1.png,car,0.1,0.1,,,0.3,0.3,,
+TRAIN,gs://folder/image1.png,bike,.7,.6,,,.8,.9,,
+UNASSIGNED,gs://folder/im2.png,car,0.1,0.1,0.2,0.1,0.2,0.3,0.1,0.3
+TEST,gs://folder/im3.png,,,,,,,,,
+'''
+Where image1 is repeated for the bounding box of a car, and again for the bounding box of a bike.
+The columns include:
+- assignment (train/test/validation/unassigned)
+- URI (points to image location on cloud storage bucket)
+- label (in our case it would be COTS)
+- bouding box (can be specified with two vertices or all 4 vertices) Eachv ertcex is defined by x and y coordinates, These coordinates must be a float and min max normalised across 0-1.
+
+
 
 ###
