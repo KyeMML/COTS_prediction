@@ -1,23 +1,15 @@
 # GCP
-Walkthrough of steps taken to host model on GCP. A variety of these services may rewquire you to enable their API on GCP. You should be prompted to do this when required.  
+Walkthrough of steps taken to host model on GCP. A variety of these services may require you to enable their API on GCP. You should be prompted to do this when required.  
 
 
-### The dataset
-The dataset includes a folder labelled train_images, containing the images of COTS, as well as a csv file labelled train, containing the annotations of these images. 
-The annotations include labelled object detection boxes for COTS in the images.
+### Kaggle dataset
+The dataset includes a folder labelled train_images, containing images of COTS, as well as a csv file labelled train.csv, containing the annotations of these images. 
+The annotations include labelled object detection boxes for COTS manually identified in the images.
 
-### Cloud Storage
-Create a new bucket with default settings.
-Upload necessary Kaggle data to the cloud storage bucket. It acts as a Data Lake, maintaining the data in its raw format. 
-
-### BigQuery
-To query the available data in cloud storage:
-- create a new dataset in your project ID in the BigQuery dashboard.
-- within that new dataset, create a table. 
-  - this will provide a range of options including specifying a source. Here specify cloud storage, and then the specific file
 
 ### Preprocessing
-Some initial transformations are necessary to enable the data to be accepted for autoML in GCP.
+The train.csv file providing annotated labels for COTS dataset is not initially in acceptable format for GCP vertexAI object detection.  
+The transformation of this data can be completed as ETL or ELT. To consider this, a comparison of these methods is (here)[https://github.com/KyeMML/GCP/blob/main/Data_Lakes_Data_Wharehouses/Data_Lakes.md]. 
 Specifically a CSV file and the images it points to must be within the same GCP cloud storage bucket.
 The csv file must be UTF-8 encoded, .csv extension, has one row for each bounding box or one row for each image with no bounding box.
 The file must contain one image per line. Images with multiple bounding boxes will be repeated with a unique bounding box coordinates on each row. 
@@ -35,6 +27,13 @@ The columns include:
 - label (in our case it would be COTS)
 - bouding box (can be specified with two vertices or all 4 vertices) Eachv ertcex is defined by x and y coordinates, These coordinates must be a float and min max normalised across 0-1.
 
+### Cloud Storage
+Create a new bucket with default settings.
+Upload necessary Kaggle data to the cloud storage bucket. It acts as a Data Lake, maintaining the data in its raw format. 
 
+### BigQuery
+To query the available data in cloud storage:
+- create a new dataset in your project ID in the BigQuery dashboard.
+- within that new dataset, create a table. 
+  - this will provide a range of options including specifying a source. Here specify cloud storage, and then the specific file
 
-###
