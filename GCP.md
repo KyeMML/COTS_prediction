@@ -72,7 +72,7 @@ For this project:
 5. Click create.  
 
 To import the data:
-1. Select "import files from Cloud Storage". (This is because the dataset contains labels)  
+1. Select "import files from Cloud Storage". (import files, such as the CSV file used in this project, facilitates the labels. If you dont have labels you would just upload the images)  
 2. Provide the import file path that points to the train data CSV file discussed above. It is necessary for this file to be in accepted format as discussed above.  
 3. Click continue  
 You will be notified by email when this process is completed.  
