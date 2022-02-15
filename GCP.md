@@ -42,11 +42,11 @@ The necessary columns include:
 
 ## 2. Cloud Storage
 To upload the Kaggle image data and train data CSV into GCP Cloud storage, we first create a new bucket.   
-To do this navigate to the GCP Cloud Storage dashboard in GCP console.  
-Click Create Bucket  
-The bucket name and location is up to the user. It should be noted that regions must be the same across Vertex AI and cloud storage services. US regions are recommended.  
-Standard storage class is recommended for this project.  
-Access controls and protecting data options is up to the user.  
+1. To do this navigate to the GCP Cloud Storage dashboard in GCP console.  
+2. Click Create Bucket  
+3. The bucket name and location is up to the user. It should be noted that regions must be the same across Vertex AI and cloud storage services. US regions are recommended.  
+4. Standard storage class is recommended for this project.  
+5. Access controls and protecting data options is up to the user.  
 
 After this, a new bucket should be created. Here you can now upload the data. To do this, navigate into the bucket, and click upload files or upload folder.
 
@@ -64,15 +64,17 @@ At a high level, raw data ingested into cloud storage would feed into the datafl
 ## 3. Vertex AI
 To utilise the Vertex AI platform, navigate to Vertex AI dashboard on google console.  
 There are three options available; Create Dataset, Train new Model, Create batch predictions.  
-For this project, select Create Dataset.  
-The dataset name is up to the user.    
-Select image object detection.  
-Select a region (must match the region of cloud storage bucket containing the data).    
-Click create.  
+For this project:
+1. Select Create Dataset.  
+2. The dataset name is up to the user.    
+3. Select image object detection.  
+4. Select a region (must match the region of cloud storage bucket containing the data).    
+5. Click create.  
 
-To import the data, select "import files from Cloud Storage". (This is because the dataset contains labels)  
-Next, provide the import file path that points to the train data CSV file discussed above. It is necessary for this file to be in accepted format as discussed above.  
-Click continue  
+To import the data:
+1. Select "import files from Cloud Storage". (This is because the dataset contains labels)  
+2. Provide the import file path that points to the train data CSV file discussed above. It is necessary for this file to be in accepted format as discussed above.  
+3. Click continue  
 You will be notified by email when this process is completed.  
 This dataset can now be utilised to train a new model.  
 
