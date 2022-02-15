@@ -9,7 +9,7 @@ The annotations include labelled object detection boxes for COTS manually identi
 
 ### Preprocessing
 The train.csv file providing annotated labels for COTS dataset is not initially in acceptable format for GCP vertexAI object detection.  
-The transformation of this data can be completed as ETL or ELT. To consider this, a comparison of these methods is (here)[https://github.com/KyeMML/GCP/blob/main/Data_Lakes_Data_Wharehouses/Data_Lakes.md]. 
+The transformation of this data can be completed as ETL or ELT. To consider this, a comparison of these methods is [here](https://github.com/KyeMML/GCP/blob/main/Data_Lakes_Data_Wharehouses/Data_Lakes.md). 
 Specifically a CSV file and the images it points to must be within the same GCP cloud storage bucket.
 The csv file must be UTF-8 encoded, .csv extension, has one row for each bounding box or one row for each image with no bounding box.
 The file must contain one image per line. Images with multiple bounding boxes will be repeated with a unique bounding box coordinates on each row. 
