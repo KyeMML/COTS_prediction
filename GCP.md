@@ -30,7 +30,7 @@ The necessary columns include:
 - assignment (train/test/validation/unassigned)
 - URI (points to image location on cloud storage bucket)
 - label (in our case it would be COTS)
-- bouding box (can be specified with two vertices or all 4 vertices). Each vertex is defined by x and y coordinates. *These coordinates must be a float and min max normalised across 0-1 range*.
+- bouding box (can be specified with two vertices or all 4 vertices). Each vertex is defined by x and y coordinates. **These coordinates must be a float and min max normalised across 0-1 range.
 
 ### Cloud Storage
 To upload the Kaggle image data and tran data csv into GCP Cloud storage, we first create a new bucket. 
