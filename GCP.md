@@ -7,9 +7,9 @@ The dataset includes a folder labelled train_images, containing images of COTS, 
 The annotations include labelled object detection boxes for COTS manually identified in the images.
 
 
-## Preprocessing
-The train.csv file providing annotated labels for COTS dataset is not initially in acceptable format for GCP vertexAI object detection.  
-The transformation of this data can be completed as ETL or ELT. To consider this, a comparison of these methods is [here](https://github.com/KyeMML/GCP/blob/main/Data_Lakes_Data_Wharehouses/Data_Lakes.md).  
+## 1. Preprocessing
+The train.csv file providing annotated labels for COTS dataset is not initially in acceptable format for GCP vertex AI object detection.  
+The transformation of this data can be completed as ETL or ELT and is discussed further in 2.3 Dataflow.
 
 #### Transforming the training data CSV for object detection  
 More information on this is provided by google [here](https://cloud.google.com/vision/automl/object-detection/docs/csv-format).  
@@ -40,7 +40,7 @@ for image_number in dataset.video_frame:
 ```  
 Bounding boxes in the raw data are lists of dictionaries containing an height, width, x and y coordinates. This will need to be translated into the required format.  
 
-## Cloud Storage
+## 2. Cloud Storage
 To upload the Kaggle image data and train data CSV into GCP Cloud storage, we first create a new bucket.   
 To do this navigate to the GCP Cloud Storage dashboard in GCP console.  
 Click Create Bucket  
@@ -51,17 +51,17 @@ Access controls and protecting data options is up to the user.
 After this, a new bucket should be created. Here you can now upload the data. To do this, navigate into the bucket, and click upload files or upload folder.
 
 
-### BigQuery
+### 2.2 BigQuery
 If necessary, to query the available data in cloud storage:
 - create a new dataset in your project ID in the BigQuery dashboard.
 - within that new dataset, create a table. 
   - this will provide a range of options including specifying a source. Here specify cloud storage, and then the specific file contained in the cloud storage bucket.
 
-### Data Pipelines
+### 2.3 Data Pipelines
 if necessary, you can use dataflow for batch processing, or dataproc for streaming. Basstch processing in dataflow is recommended for ELT, more information on Dataflow can be found [here](https://github.com/KyeMML/GCP/blob/main/Batch_Data_Pipelines/Dataflow.md).  
 At a high level, raw data ingested into cloud storage would feed into the dataflow to facilitate the preprocessing discussed earlier. It should be noted that automating these pipelines would facilitate a trade off between manual jobs and financial expenses generating by greater resource consumption on GCP. To determine what is best between ETL and ELT you can find more information [here](https://github.com/KyeMML/GCP/blob/main/Data_Lakes_Data_Wharehouses/Data_Lakes.md).
 
-## Vertex AI
+## 3. Vertex AI
 To utilise the Vertex AI platform, navigate to Vertex AI dashboard on google console.  
 There are three options available; Create Dataset, Train new Model, Create batch predictions.  
 For this project, select Create Dataset.  
@@ -76,7 +76,7 @@ Click continue
 You will be notified by email when this process is completed.  
 This dataset can now be utilised to train a new model.  
 
-### Model Training  
+### 3.1 Model Training  
 Vertex AI provides the following model options:  
 ![image](https://user-images.githubusercontent.com/55074122/154063281-e661ee1f-ff35-416c-813c-2ad1c34963df.png)
 
