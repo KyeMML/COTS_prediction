@@ -1,5 +1,6 @@
 # GCP
-Walkthrough of steps taken to host model on GCP  
+Walkthrough of steps taken to host model on GCP. A variety of these services may rewquire you to enable their API on GCP. You should be prompted to do this when required.  
+
 
 ### The dataset
 The dataset includes a folder labelled train_images, containing the images of COTS, as well as a csv file labelled train, containing the annotations of these images. 
