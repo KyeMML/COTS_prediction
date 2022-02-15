@@ -59,7 +59,7 @@ If necessary, to query the available data in cloud storage:
 
 ### 2.3 Data Pipelines
 if necessary, you can use dataflow for batch processing, or dataproc for streaming. For ELT implementation, batch processing in dataflow is recommended. More information on Dataflow can be found [here](https://github.com/KyeMML/GCP/blob/main/Batch_Data_Pipelines/Dataflow.md).  
-At a high level, raw data ingested into cloud storage would feed into the dataflow to facilitate the preprocessing discussed earlier. It should be noted that automating these pipelines would facilitate a trade off between manual jobs and financial expenses generating by greater resource consumption on GCP. To determine what is best between ETL and ELT you can find more information [here](https://github.com/KyeMML/GCP/blob/main/Data_Lakes_Data_Wharehouses/Data_Lakes.md).
+At a high level, raw data ingested into cloud storage would feed into the dataflow to facilitate the preprocessing discussed earlier. It should be noted that automating these pipelines would facilitate a trade off between manual jobs and financial expenses generating by greater resource consumption on GCP. To determine what is best between ETL and ELT you can find more information [here](https://github.com/KyeMML/GCP/blob/main/Data_Lakes_Data_Wharehouses/Data_Lakes.md), subheading ETL vs. ELT.
 
 ## 3. Vertex AI
 To utilise the Vertex AI platform, navigate to Vertex AI dashboard on google console.  
